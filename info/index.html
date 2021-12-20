@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guìa de la lengua Number ABC, para aprender su abecedario y como usarlo">
+    <meta name="keywords" content="Number ABC, ABC en números, Lengua no verbal, Lengua, Acertijo, Acertijos">
+    <meta name="author" content="Joel Ortiz Sosa">
+    <meta name="copyright" content="Joel Ortiz Sosa">
+    <meta name="robots" content="index">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sassy+Frass&family=Shadows+Into+Light&family=Yuji+Mai&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="n-logo.ico">
+    <title>Number ABC | Info</title>
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: block;
+            text-align: center;
+            width: 100%;
+            background-color: #222;
+            margin-bottom: 3em;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Yuji Mai', serif;
+            display: block;
+            color: rgb(255, 255, 255);
+            font-size: 2.2em;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .article1 {
+            text-align: center;
+            background-color: rgb(245, 245, 245);
+        }
+
+        .article2 {
+            text-align: center;
+            background-color: rgb(245, 245, 245);
+        }
+
+        h2 {
+            display: block;
+            color: rgb(0, 0, 0);
+            font-size: 2.2em;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+        }
+
+        h3 {
+            display: block;
+            color: rgb(0, 0, 0);
+            font-size: 2.2em;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+        }
+
+
+        p {
+            text-align: center;
+        }
+
+        footer {
+            display: block;
+            width: 100%;
+            background-color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        .p {
+            display: block;
+            font-size: 20px;
+            font-weight: 700px;
+            padding: 2%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+
+        .a:hover {
+            color: rgba(0, 0, 0, 0.857);
+            text-decoration: underline;
+            transition: .3s;
+        }
+
+
+
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #1d273b;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+
+        /* Header */
+        header::before {
+            content: "";
+            display: block;
+            margin-bottom: 80px;
+        }
+
+
+        nav {
+            width: 100%;
+            height: 80px;
+            background: rgb(255, 255, 255);
+            border-bottom: 1px solid transparent;
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            transition: ease-in-out 0.5s;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            width: 100%;
+            padding: 0 40px;
+            margin-right: 100%;
+        }
+
+
+
+
+        .enlaces-header {
+            font-weight: 300;
+            transition: ease-in-out 0.5s;
+            width: 60%;
+        }
+
+        .nav .enlaces-header a {
+            color: #5D6678;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .hamburguer {
+            width: 80px;
+            height: 80px;
+            display: none;
+            text-align: center;
+            z-index: 100;
+            cursor: pointer;
+            transition: color 0.5s ease-in;
+        }
+
+        .hamburguer>i {
+            font-size: 25px;
+            line-height: 80px;
+        }
+
+
+        footer {
+            background: #f2f2f2;
+            padding: 60px 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: auto;
+        }
+
+        .partFooter {
+            width: 20%;
+            text-align: center;
+        }
+
+        .partFooter h4 {
+            color: #1d273b;
+            font-size: 20px;
+            font-weight: 400;
+
+        }
+
+        .partFooter .ea {
+            color: #1d273b;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Yuji Mai', serif;
+
+        }
+
+        .social-media i {
+            font-size: 20px;
+            display: inline-block;
+            color: #adb6c7;
+            border: 1px solid #adb6c7;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            line-height: 36px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            transition: all ease-in-out .3s;
+            margin-right: 5px;
+        }
+
+        .social-media i:hover {
+            color: #fff;
+            background-color: #0066ff;
+            border-color: #0066ff;
+        }
+
+        /* Breakpoints responsive */
+
+        @media screen and (max-width:800px) {
+            .titulo {
+                font-size: 45px;
+            }
+
+
+
+            /* Footer */
+
+            footer {
+                justify-content: space-evenly;
+            }
+
+            .partFooter {
+                width: 40%;
+
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .titulo {
+                font-size: 35px;
+            }
+
+
+            .nav {
+                padding: 0 10px;
+            }
+
+            .enlaces-header {
+                position: fixed;
+                background: #667db6;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: space-evenly;
+                clip-path: circle(0.0% at 100% 0);
+            }
+
+            .nav .menudos {
+
+                -webkit-clip-path: circle(150% at 100% 0);
+                clip-path: circle(150% at 100% 0);
+
+            }
+
+            .nav .enlaces-header a {
+                color: #fff;
+            }
+
+            .hamburguer {
+                display: block;
+            }
+
+
+            /* Footer */
+            .partFooter {
+                width: 95%;
+
+            }
+        }
+
+        .info {
+            color: #0066ff !important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+                    <h1>Number ABC</h1>
+                </div>
+                <div class="enlaces-header">
+                    <a class="inicio" href="#">Inicio</a>
+                    <a class="guia" href="https://jortizso.github.io/number-abc">Guía</a>
+                    <a class="curso" href="#">Curso</a>
+                    <a class="acertijo" href="#">Acertijo</a>
+                    <a class="info" href="htps://jortizso.github.io/number-abc/info/index.html">Info</a>
+                    <a class="blog" href="#">Blog</a>
+                </div>
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+
+    </header>
+    <br><br>
+    <section>
+        <article class="article1">
+            <h2>El autor</h2>
+            <p>
+                El nombre del autor de esta lengua es "Joel Ortiz Sosa" <br>
+                cualquiera que reclame públicamente ser el autor, sin nombrarse así,
+                estará
+                mintiendo. <br><br>
+            </p>
+        </article>
+
+        <article class="article1">
+            <h2>Fecha de creación</h2>
+            <p>
+                Esta lengua fué creada la fecha sábado, 11 de diciembre del 2021. <br><br>
+            </p>
+        </article>
+
+        <article class="article1">
+            <h3>Lenguaje original en la que se creó</h3>
+            <p>
+                Español <br><br>
+            </p>
+        </article>
+
+        <article class="article1">
+            <h3>Pais de origen</h3>
+            <p>
+                Paraguay <br><br>
+            </p>
+        </article>
+
+        <article class="article1">
+            <h3>Uso destinado</h3>
+            <p>
+                Acertijos & Comunicación no verbal<br><br>
+            </p>
+        </article>
+
+    </section>
+
+
+    <footer>
+        <div class="partFooter">
+            <h4 class="ea">Number ABC</h4>
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                <a href="https://www.instagram.com/j.ortizsosa/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/jortizso" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+    <script>
+        let ubicacionPrincipal = window.pageYOffset; //0
+
+        AOS.init();
+
+        window.addEventListener("scroll", function () {
+            let desplazamientoActual = window.pageYOffset; //180
+            if (ubicacionPrincipal >= desplazamientoActual) { // 200 > 180
+                document.getElementsByTagName("nav")[0].style.top = "0px"
+            } else {
+                document.getElementsByTagName("nav")[0].style.top = "-100px"
+            }
+            ubicacionPrincipal = desplazamientoActual; //200
+
+        })
+
+        // Menu
+
+        let enlacesHeader = document.querySelectorAll(".enlaces-header")[0];
+        let semaforo = true;
+
+        document.querySelectorAll(".hamburguer")[0].addEventListener("click", function () {
+            if (semaforo) {
+                document.querySelectorAll(".hamburguer")[0].style.color = "#fff";
+                semaforo = false;
+            } else {
+                document.querySelectorAll(".hamburguer")[0].style.color = "#000";
+                semaforo = true;
+            }
+
+            enlacesHeader.classList.toggle("menudos")
+        })
+    </script>
+
+</body>
+
+</html>

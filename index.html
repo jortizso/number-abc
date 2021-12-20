@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía de la lengua Number ABC, para aprender su abecedario y como usarlo">
+    <meta name="keywords" content="Number ABC, ABC en números, Lengua no verbal, Lengua, Acertijo, Acertijos">
+    <meta name="author" content="Joel Ortiz Sosa">
+    <meta name="robots" content="index">
+    <link rel="icon" href="n-logo.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sassy+Frass&family=Shadows+Into+Light&family=Yuji+Mai&display=swap"
+        rel="stylesheet">
+    <title>Number ABC</title>
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        .article1 {
+            text-align: center;
+        }
+
+
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .cuestionario {
+            display: block;
+            width: 100%;
+            border: 1px solid #222;
+            background-color: rgb(245, 245, 245);
+            padding: 10px;
+        }
+
+        header {
+            display: block;
+            text-align: center;
+            width: 100%;
+            background-color: #222;
+            margin-bottom: 3em;
+            padding: 0;
+        }
+
+        h1 {
+            font-family: 'Yuji Mai', serif;
+            display: block;
+            color: rgb(255, 255, 255);
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+        }
+
+        h2 {
+            display: block;
+            color: rgb(0, 0, 0);
+            font-size: 2.2em;
+            font-weight: 700;
+            padding: 1%;
+            text-align: center;
+            margin: 0;
+        }
+
+        h3 {
+            display: block;
+            color: rgb(0, 0, 0);
+            font-size: 2.2em;
+            font-weight: 700;
+            padding: 1%;
+            text-align: center;
+            margin: 0;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .comprende {
+            background-color: whitesmoke;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1.5em;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-left: 1em;
+        }
+
+        input {
+            display: block;
+            width: 48.5%;
+            ;
+            margin-bottom: 1em;
+            font-size: 1em;
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            margin-left: 1.5em;
+        }
+
+        #boton {
+            display: block;
+            width: 25%;
+            font-size: .95em;
+            text-align: center;
+            padding: 1% 1%;
+            margin-left: 2em;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgb(221, 221, 221);
+            cursor: pointer;
+            float: left;
+        }
+
+        #boton:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+            color: rgb(34, 34, 34);
+            border: 2px solid rgb(128, 128, 128);
+        }
+
+        #btn-clear {
+            display: block;
+            width: 25%;
+            font-size: .95em;
+            text-align: center;
+            padding: 1% 1%;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: rgb(34, 34, 34);
+            border: 2px solid gray;
+            cursor: pointer;
+            margin-left: 10em;
+        }
+
+        #btn-clear:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgb(255, 255, 255);
+        }
+
+        @media only screen and (min-width: 768px) {
+            .cuestionario {
+                display: block;
+                width: 40%;
+                margin: 1em auto;
+            }
+
+            input {
+                display: block;
+                width: 250px;
+            }
+
+            #answer1,
+            #answer2 {
+                margin-left: 40%;
+            }
+        }
+
+
+        @media only screen and (min-width: 992px) {
+            .cuestionario {
+                display: block;
+                width: 50%;
+            }
+
+            input {
+                display: block;
+                width: 480px;
+            }
+        }
+
+        .p {
+            display: block;
+            font-size: 20px;
+            font-weight: 700px;
+            padding: 2%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .a:hover {
+            color: rgba(255, 255, 255, 0.857);
+            text-decoration: underline;
+            transition: .3s;
+        }
+
+        img {
+
+            width: 60%;
+        }
+
+
+
+
+        .modalDialog {
+            position: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 99999;
+            opacity: 0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+
+        .modalDialog:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modalDialog>div {
+            width: 70%;
+            position: relative;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+        }
+
+        .close {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+
+        .close:hover {
+            background: #ff0000;
+        }
+
+        .a1 {
+            text-align: center;
+            color: rgb(31, 31, 31);
+            padding: 2px;
+        }
+
+        .a1:hover {
+            color: rgb(0, 8, 255);
+            transition: .3s;
+        }
+
+        .a2 {
+            color: rgb(75, 75, 75);
+        }
+
+        .a2:hover {
+            color: rgb(0, 8, 255);
+            transition: .3s;
+        }
+
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #1d273b;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+
+        /* Header */
+        header::before {
+            content: "";
+            display: block;
+            margin-bottom: 80px;
+        }
+
+
+        nav {
+            width: 100%;
+            height: 80px;
+            background: rgb(255, 255, 255);
+            border-bottom: 1px solid transparent;
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            transition: ease-in-out 0.5s;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            width: 100%;
+            padding: 0 40px;
+            margin-right: 100%;
+        }
+
+
+
+
+        .enlaces-header {
+            font-weight: 300;
+            transition: ease-in-out 0.5s;
+            width: 60%;
+        }
+
+        .nav .enlaces-header a {
+            color: #5D6678;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .hamburguer {
+            width: 80px;
+            height: 80px;
+            display: none;
+            text-align: center;
+            z-index: 100;
+            cursor: pointer;
+            transition: color 0.5s ease-in;
+        }
+
+        .hamburguer>i {
+            font-size: 25px;
+            line-height: 80px;
+        }
+
+
+        footer {
+            background: #f2f2f2;
+            padding: 60px 0;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: auto;
+        }
+
+        .partFooter {
+            width: 20%;
+            text-align: center;
+        }
+
+        .partFooter h4 {
+            color: #1d273b;
+            font-size: 20px;
+            font-weight: 400;
+
+        }
+
+        .partFooter .ea {
+            color: #1d273b;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Yuji Mai', serif;
+
+        }
+
+        .social-media i {
+            font-size: 20px;
+            display: inline-block;
+            color: #adb6c7;
+            border: 1px solid #adb6c7;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            line-height: 36px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+            transition: all ease-in-out .3s;
+            margin-right: 5px;
+        }
+
+        .social-media i:hover {
+            color: #fff;
+            background-color: #0066ff;
+            border-color: #0066ff;
+        }
+
+        /* Breakpoints responsive */
+
+        @media screen and (max-width:800px) {
+            .titulo {
+                font-size: 45px;
+            }
+
+
+
+            /* Footer */
+
+            footer {
+                justify-content: space-evenly;
+            }
+
+            .partFooter {
+                width: 40%;
+
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .titulo {
+                font-size: 35px;
+            }
+
+            img {
+                width: 99%;
+            }
+
+
+            .nav {
+                padding: 0 10px;
+            }
+
+            .enlaces-header {
+                position: fixed;
+                background: #667db6;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: space-evenly;
+                clip-path: circle(0.0% at 100% 0);
+            }
+
+            .nav .menudos {
+
+                -webkit-clip-path: circle(150% at 100% 0);
+                clip-path: circle(150% at 100% 0);
+
+            }
+
+            .nav .enlaces-header a {
+                color: #fff;
+            }
+
+            .hamburguer {
+                display: block;
+            }
+
+
+            /* Footer */
+            .partFooter {
+                width: 95%;
+
+            }
+
+        }
+
+        .guia {
+            color: rgb(0, 17, 255) !important;
+        }
+
+        .comprende p {
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+                    <h1>Number ABC</h1>
+                </div>
+                <div class="enlaces-header">
+                    <a class="inicio" href="#">Inicio</a>
+                    <a class="guia" href="https://jortizso.github.io/number-abc">Guía</a>
+                    <a class="curso" href="#">Curso</a>
+                    <a class="acertijo" href="#">Acertijo</a>
+                    <a class="info" href="htps://jortizso.github.io/number-abc/info/index.html">Info</a>
+                    <a class="blog" href="#">Blog</a>
+                </div>
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+
+    </header>
+    <br><br>
+    <section>
+        <article class="article1">
+            <h2>Abecedario "Number ABC"</h2>
+            <img src="img/tabla.png" alt="Tabla del Abecedario Number ABC">
+        </article>
+
+        <article class="comprende">
+            <h3>Comprende:</h3>
+            <p>
+                Esta lengua de comunicación, se utiliza de la siguiente forma:
+                <br> <br>
+                se trata de sustituir el abecedario español por números <br>
+                del 1 al 27 en reverso, es decir, la "A" sería 27, la "B" 26, la "C" 25 <br>
+                y así sucesivamente. <br>
+                y tal cuál, formar palabras con los números, por ejemplo: <br> <br>
+
+                <b>
+                    ABC Normal: Hola
+
+                    <br> <br>
+
+                    Number ABC: 20|12|16|27
+                </b>
+
+                <br> <br>
+                las letras "H" "O" "L" "A" forman "Hola" <br> <br>
+                los números "20" "12" "16" "27" forman "20|12|16|27" <br> <br>
+
+                Si leíste con atención, te habrás dado cuenta de lo que me refiero <br>
+               luego de cada número que equivalga una letra, poner "|" para poner comas <br>
+                se utiliza "#". <a class="a2" href="#openModal">Descargar guía</a> <br><br>
+            </p>
+
+            <div id="openModal" class="modalDialog">
+                <div>
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h3>Descargar guía</h3>
+                    <p>Selecciona el formato que desees.</p>
+                    <p><a class="a1" href="guia/number-abc.pdf" download>.PDF</a> <a class="a1" href="guia/number-abc.docx"
+                            download>.DOCX</a></p>
+                </div>
+            </div>
+
+        </article>
+
+        <article>
+            <h2>Ahora intentalo vos</h2>
+
+            <div class="cuestionario">
+                <label for="text1">1. Traduce "Hola" al Number ABC</label>
+                <input type="text" id="text1">
+
+                <label for="text2">2. Traduce "Hola, que tal? al Number ABC"</label>
+                <input type="text" id="text2">
+
+
+                <label for="text3">3. Traduce "Cual es tu nombre" al Number ABC</label>
+                <input type="text" id="text3">
+
+
+                <label for="text4">4. Traduce "Yo soy: humano" al Number ABC</label>
+                <input type="text" id="text4">
+
+
+                <label for="text5">5. Traduce "Hoy es diciembre" al Number ABC"</label>
+                <input type="text" id="text5">
+
+
+                <label for="text6">6. Traduce "Felicidades!" al Number ABC </label>
+                <input type="text" id="text6">
+
+
+                <label for="text7">7. Traduce "Gracias" al Number ABC</label>
+                <input type="text" id="text7">
+
+
+                <label for="text8">8. Traduce "Adios" al Number ABC</label>
+                <input type="text" id="text8">
+
+
+                <label for="text9">9. Traduce "Number abc" al Number ABC</label>
+                <input type="text" id="text9">
+
+
+                <label for="text10">10. Traduce "Abecedario" al Number ABC</label>
+                <input type="text" id="text10">
+
+
+
+                <button id="boton">Enviar</button>
+                <button id="btn-clear">Limpiar</button>
+
+                <p id="answer1"></p>
+                <p id="answer2"></p>
+            </div>
+        </article>
+
+    </section>
+    <br>
+    <footer>
+        <div class="partFooter">
+            <h4 class="ea">Number ABC</h4>
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                <a href="https://www.instagram.com/j.ortizsosa/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/jortizso" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+
+    <script>
+        var _0x9ad6 = ["\x61\x6E\x73\x77\x65\x72\x31", "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64",
+            "\x61\x6E\x73\x77\x65\x72\x32", "\x74\x65\x78\x74\x31", "\x74\x65\x78\x74\x32", "\x74\x65\x78\x74\x33",
+            "\x74\x65\x78\x74\x34", "\x74\x65\x78\x74\x35", "\x74\x65\x78\x74\x36", "\x74\x65\x78\x74\x37",
+            "\x74\x65\x78\x74\x38", "\x74\x65\x78\x74\x39", "\x74\x65\x78\x74\x31\x30",
+            "\x62\x74\x6E\x2D\x63\x6C\x65\x61\x72", "\x63\x6C\x69\x63\x6B",
+            "\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72", "\x77\x69\x64\x74\x68",
+            "\x73\x74\x79\x6C\x65", "\x63\x6F\x6C\x6F\x72", "\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64",
+            "\x70\x61\x64\x64\x69\x6E\x67", "\x62\x6F\x72\x64\x65\x72", "\x74\x65\x78\x74\x41\x6C\x69\x67\x6E",
+            "\x74\x72\x69\x6D", "\x74\x6F\x55\x70\x70\x65\x72\x43\x61\x73\x65", "\x76\x61\x6C\x75\x65",
+            "\x6C\x6F\x67", "\x32\x30\x7C\x31\x32\x7C\x31\x36\x7C\x32\x37",
+            "\x32\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x72\x65\x64", "\x72\x65\x64",
+            "\x32\x30\x7C\x31\x32\x7C\x31\x36\x7C\x32\x37\x23\x2F\x31\x30\x7C\x36\x7C\x32\x33\x2F\x37\x7C\x32\x37\x7C\x31\x36",
+            "\x32\x35\x7C\x36\x7C\x32\x37\x7C\x31\x36\x2F\x32\x33\x7C\x38\x2F\x37\x7C\x36\x2F\x31\x34\x7C\x31\x32\x7C\x31\x35\x7C\x32\x36\x7C\x39\x7C\x32\x33",
+            "\x32\x7C\x31\x32\x2F\x38\x7C\x31\x32\x7C\x32\x2F\x32\x30\x7C\x36\x7C\x31\x35\x7C\x32\x37\x7C\x31\x34\x7C\x31\x32",
+            "\x32\x30\x7C\x31\x32\x7C\x32\x2F\x32\x33\x7C\x38\x2F\x32\x34\x7C\x31\x39\x7C\x32\x35\x7C\x31\x39\x7C\x32\x33\x7C\x31\x35\x7C\x32\x36\x7C\x39\x7C\x32\x33",
+            "\x32\x32\x7C\x32\x33\x7C\x31\x36\x7C\x31\x39\x7C\x32\x35\x7C\x31\x39\x7C\x32\x34\x7C\x32\x37\x7C\x32\x34\x7C\x32\x33\x7C\x38",
+            "\x32\x32\x7C\x32\x33\x7C\x31\x36\x7C\x31\x39\x7C\x32\x35\x7C\x31\x39\x7C\x32\x34\x7C\x32\x37\x7C\x32\x34\x7C\x32\x33\x7C\x38\x21",
+            "\x32\x31\x7C\x39\x7C\x32\x37\x7C\x32\x35\x7C\x31\x39\x7C\x32\x37\x7C\x38",
+            "\x32\x37\x7C\x32\x34\x7C\x31\x39\x7C\x31\x32\x7C\x38",
+            "\x31\x34\x7C\x36\x7C\x31\x35\x7C\x32\x36\x7C\x39\x2F\x32\x37\x7C\x32\x36\x7C\x32\x35",
+            "\x32\x37\x7C\x32\x36\x7C\x32\x33\x7C\x32\x35\x7C\x32\x33\x7C\x32\x34\x7C\x32\x37\x7C\x39\x7C\x31\x39\x7C\x31\x32",
+            "\x43\x6F\x72\x72\x65\x63\x74\x61\x73\x3A\x20",
+            "\x63\x72\x65\x61\x74\x65\x54\x65\x78\x74\x4E\x6F\x64\x65",
+            "\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64", "\x62\x6F\x64\x79", "\x31\x35\x30\x70\x78",
+            "\x23\x32\x32\x32", "\x6C\x69\x67\x68\x74\x67\x72\x65\x65\x6E", "\x31\x30\x70\x78",
+            "\x33\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x67\x72\x61\x79", "\x63\x65\x6E\x74\x65\x72",
+            "\x49\x6E\x63\x6F\x72\x72\x65\x63\x74\x61\x73\x3A\x20", "\x23\x64\x64\x64",
+            "\x4C\x61\x73\x20\x63\x6F\x72\x72\x65\x63\x61\x73\x20\x73\x6F\x6E\x20\x3A\x20",
+            "\x4C\x61\x73\x20\x69\x6E\x63\x6F\x72\x72\x65\x63\x74\x61\x73\x20\x73\x6F\x6E\x3A\x20", "",
+            "\x31\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x72\x67\x62\x61\x28\x30\x2C\x20\x30\x2C\x20\x30\x2C\x20\x30\x2E\x35\x29",
+            "\x62\x6C\x61\x63\x6B", "\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C"
+        ];
+        var item1 = document[_0x9ad6[1]](_0x9ad6[0]);
+        var item2 = document[_0x9ad6[1]](_0x9ad6[2]);
+        var request1 = document[_0x9ad6[1]](_0x9ad6[3]);
+        var request2 = document[_0x9ad6[1]](_0x9ad6[4]);
+        var request3 = document[_0x9ad6[1]](_0x9ad6[5]);
+        var request4 = document[_0x9ad6[1]](_0x9ad6[6]);
+        var request5 = document[_0x9ad6[1]](_0x9ad6[7]);
+        var request6 = document[_0x9ad6[1]](_0x9ad6[8]);
+        var request7 = document[_0x9ad6[1]](_0x9ad6[9]);
+        var request8 = document[_0x9ad6[1]](_0x9ad6[10]);
+        var request9 = document[_0x9ad6[1]](_0x9ad6[11]);
+        var request10 = document[_0x9ad6[1]](_0x9ad6[12]);
+        var clear = document[_0x9ad6[1]](_0x9ad6[13]);
+        var sumaC = 0,
+            sumaI = 0;
+        var first_item = false,
+            second_item = false;
+        boton[_0x9ad6[15]](_0x9ad6[14], sendAnswer);
+        clear[_0x9ad6[15]](_0x9ad6[14], clearAnswer);
+
+        function addStyle(_0x9a5fx13, _0x9a5fx14, _0x9a5fx15, _0x9a5fx16, _0x9a5fx17, _0x9a5fx18, _0x9a5fx19) {
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[16]] = _0x9a5fx14;
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[18]] = _0x9a5fx15;
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[19]] = _0x9a5fx16;
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[20]] = _0x9a5fx17;
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[21]] = _0x9a5fx18;
+            _0x9a5fx13[_0x9ad6[17]][_0x9ad6[22]] = _0x9a5fx19
+        }
+
+        function sendAnswer() {
+            var _0x9a5fx1b = request1[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx1c = request2[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx1d = request3[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx1e = request4[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx1f = request5[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx20 = request6[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx21 = request7[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx22 = request8[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx23 = request9[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            var _0x9a5fx24 = request10[_0x9ad6[25]][_0x9ad6[24]]()[_0x9ad6[23]]();
+            console[_0x9ad6[26]](_0x9a5fx23);
+            if (_0x9a5fx1b === _0x9ad6[27]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request1[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request1[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx1c === _0x9ad6[30]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request2[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request2[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx1d === _0x9ad6[31]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request3[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request3[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx1e === _0x9ad6[32]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request4[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request4[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx1f === _0x9ad6[33]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request5[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request5[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx20 == _0x9ad6[34] || _0x9a5fx20 === _0x9ad6[35]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request6[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request6[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx21 === _0x9ad6[36]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request7[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request7[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx22 === _0x9ad6[37]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request8[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request8[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx23 === _0x9ad6[38]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request9[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request9[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (_0x9a5fx24 === _0x9ad6[39]) {
+                sumaC += 1;
+                first_item = true
+            } else {
+                sumaI += 1;
+                second_item = true;
+                request10[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[28];
+                request10[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[29]
+            };
+            if (first_item === true) {
+                var _0x9a5fx25 = document[_0x9ad6[1]](_0x9ad6[0]);
+                var _0x9a5fx26 = document[_0x9ad6[41]](_0x9ad6[40] + sumaC);
+                _0x9a5fx25[_0x9ad6[42]](_0x9a5fx26);
+                document[_0x9ad6[43]][_0x9ad6[42]](_0x9a5fx25);
+                addStyle(_0x9a5fx25, _0x9ad6[44], _0x9ad6[45], _0x9ad6[46], _0x9ad6[47], _0x9ad6[48], _0x9ad6[49])
+            };
+            if (second_item === true) {
+                var _0x9a5fx27 = document[_0x9ad6[1]](_0x9ad6[2]);
+                var _0x9a5fx28 = document[_0x9ad6[41]](_0x9ad6[50] + sumaI);
+                _0x9a5fx27[_0x9ad6[42]](_0x9a5fx28);
+                document[_0x9ad6[43]][_0x9ad6[42]](_0x9a5fx27);
+                addStyle(_0x9a5fx27, _0x9ad6[44], _0x9ad6[51], _0x9ad6[29], _0x9ad6[47], _0x9ad6[48], _0x9ad6[49])
+            };
+            console[_0x9ad6[26]](_0x9ad6[52] + sumaC);
+            console[_0x9ad6[26]](_0x9ad6[53] + sumaI);
+            sumaC = 0;
+            sumaI = 0
+        }
+
+        function clearAnswer() {
+            request1[_0x9ad6[25]] = _0x9ad6[54];
+            request1[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request1[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request2[_0x9ad6[25]] = _0x9ad6[54];
+            request2[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request2[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request3[_0x9ad6[25]] = _0x9ad6[54];
+            request3[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request3[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request4[_0x9ad6[25]] = _0x9ad6[54];
+            request4[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request4[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request5[_0x9ad6[25]] = _0x9ad6[54];
+            request5[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request5[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request6[_0x9ad6[25]] = _0x9ad6[54];
+            request6[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request6[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request7[_0x9ad6[25]] = _0x9ad6[54];
+            request7[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request7[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request8[_0x9ad6[25]] = _0x9ad6[54];
+            request8[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request8[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request9[_0x9ad6[25]] = _0x9ad6[54];
+            request9[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request9[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            request10[_0x9ad6[25]] = _0x9ad6[54];
+            request10[_0x9ad6[17]][_0x9ad6[21]] = _0x9ad6[55];
+            request10[_0x9ad6[17]][_0x9ad6[18]] = _0x9ad6[56];
+            item1[_0x9ad6[57]] = _0x9ad6[54];
+            item2[_0x9ad6[57]] = _0x9ad6[54]
+        }
+    </script>
+    <script>
+        let ubicacionPrincipal = window.pageYOffset; //0
+
+        AOS.init();
+
+        window.addEventListener("scroll", function () {
+            let desplazamientoActual = window.pageYOffset; //180
+            if (ubicacionPrincipal >= desplazamientoActual) { // 200 > 180
+                document.getElementsByTagName("nav")[0].style.top = "0px"
+            } else {
+                document.getElementsByTagName("nav")[0].style.top = "-100px"
+            }
+            ubicacionPrincipal = desplazamientoActual; //200
+
+        })
+
+        // Menu
+
+        let enlacesHeader = document.querySelectorAll(".enlaces-header")[0];
+        let semaforo = true;
+
+        document.querySelectorAll(".hamburguer")[0].addEventListener("click", function () {
+            if (semaforo) {
+                document.querySelectorAll(".hamburguer")[0].style.color = "#fff";
+                semaforo = false;
+            } else {
+                document.querySelectorAll(".hamburguer")[0].style.color = "#000";
+                semaforo = true;
+            }
+
+            enlacesHeader.classList.toggle("menudos")
+        })
+    </script>
+</body>
+
+</html>
